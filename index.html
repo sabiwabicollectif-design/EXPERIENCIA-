@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wabi Sabi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Sans:wght@400;500;600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <canvas class="butter-canvas" aria-hidden="true"></canvas>
+    <div class="film-grain"></div>
+    <div class="knife-cursor" aria-hidden="true">
+      <img src="CURSOR.png" alt="">
+    </div>
+
+    <!-- Locked top composition: keep header + hero area unchanged while building the rest below. -->
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#intro">WORK</a>
+        <a href="mailto:sabi.wabi.collectif@gmail.com">CONTACT</a>
+        <a href="https://www.instagram.com/_wabi_sabi_collectif/" target="_blank" rel="noreferrer">INSTA</a>
+      </nav>
+    </header>
+
+    <main class="canvas">
+      <section class="hero-block hero-block-locked">
+        <div class="hero-toast-wrap">
+          <div class="hero-toast-stage">
+            <img class="hero-toast" src="firefly-gemini-flash-2-2.png" data-toast-with-knife="firefly-gemini-flash-2-2.png" data-toast-without-knife="TOAST.png" alt="Wabi Sabi toast artwork">
+            <button class="toast-knife-hitbox" type="button" aria-pressed="false" aria-label="Pick up knife from toast"></button>
+          </div>
+        </div>
+
+        <div id="intro" class="hero-copy">
+          <div class="hero-text-wrap">
+            <p class="hero-intro">
+              Both Portuguese, <button class="name-toggle" type="button" data-person="leandro" aria-pressed="false">Leandro</button> comes from the Numbers and <button class="name-toggle" type="button" data-person="sara" aria-pressed="false">Sara</button> from the Arts. <button class="name-toggle" type="button" data-person="leandro" aria-pressed="false">Leandro</button> hates broccoli and to walk barefoot and <button class="name-toggle" type="button" data-person="sara" aria-pressed="false">Sara</button> loves cold pizza and dipping fries in ice cream. They started this investigation almost as a playful experiment — an informal lab, (aka their kitchen) where they test ideas, cross-contaminate knowledge with sillyness. They love to ask questions that often don’t have immediate answers, sometimes too many of them. That's how they decided to take it more seriously, by sharing and discussing it with more people — people who will ask even more questions, lead them down new paths, or simply get lost in it together.
+            </p>
+
+            <div class="hero-floaters" aria-label="Floating images">
+              <button class="floater floater-1" type="button"><img src="floaters/floater-1.png" alt="Floater 1"></button>
+              <button class="floater floater-2" type="button"><img src="floaters/floater-2.png" alt="Floater 2"></button>
+              <button class="floater floater-3" type="button"><img src="floaters/floater-3.png" alt="Floater 3"></button>
+              <button class="floater floater-4" type="button"><img src="floaters/floater-4.png" alt="Floater 4"></button>
+              <button class="floater floater-5" type="button"><img src="floaters/floater-5.png" alt="Floater 5"></button>
+              <button class="floater floater-6" type="button"><img src="floaters/floater-6.png" alt="Floater 6"></button>
+              <button class="floater floater-7" type="button"><img src="floaters/floater-7.png" alt="Floater 7"></button>
+              <button class="floater floater-8" type="button"><img src="floaters/floater-8.png" alt="Floater 8"></button>
+            </div>
+          </div>
+
+          <div class="bolacha-wrap">
+            <img class="bolacha-image" src="bolachamaria.png" alt="Bolacha Maria">
+          </div>
+        </div>
+      </section>
+
+      <section class="scroll-tail" aria-hidden="true"></section>
+
+      <section class="titles-section" aria-label="Titulos image reveal">
+        <div class="titles-stage">
+          <img class="titles-image" src="titulos.png" alt="Titulos">
+          <img class="titles-circle titles-circle-shifts" src=" circle 1.png" alt="" aria-hidden="true">
+          <div class="titles-note titles-note-shifts">
+            <p><button class="titles-entry-button" type="button" data-project="furia">Furia</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="enseada">Enseada</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="three-house">Three House</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="torto">Torto</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="paris-whisky-live">Paris Whisky Live</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="toca-da-raposa">Toca da Raposa</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="monkey-mash">Monkey Mash</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="vagos">VSG Michelin Dinner</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="ophelia">Ophelia_</button></p>
+          </div>
+          <div class="titles-note titles-note-talks">
+            <p>ProIce</p>
+            <p><button class="titles-entry-button" type="button" data-project="three-house">Three House</button></p>
+            <p><button class="titles-entry-button" type="button" data-project="vagos">Vagos Sensation Gourmet</button></p>
+          </div>
+          <div class="titles-note titles-note-collabs">
+            <p><button class="titles-entry-button" type="button" data-project="martell">MARTELL x Drink More Art</button></p>
+            <p>Matter &amp; Shape x BALBOSTÉ</p>
+            <p><button class="titles-entry-button" type="button" data-project="formalighting">Formalighting x BALBOSTÉ</button></p>
+            <p>ON Running x BALBOSTÉ</p>
+            <p>Just an Idea x BALBOSTÉ</p>
+            <p><button class="titles-entry-button" type="button" data-project="havana-cocktail-maestros">HAVANA COCKTAIL MAESTROS 25/26 France Winner</button></p>
+          </div>
+          <div class="titles-note titles-note-press">
+            <p><button class="titles-entry-button" type="button" data-project="barmag">BARMAG</button></p>
+            <p>Rumporter</p>
+            <p>Difford's Guide</p>
+          </div>
+          <div class="titles-note titles-note-archive">
+            <p><a href="porfefolio simples.pdf" download="PORTEFOLIO.pdf">PORTEFOLIO.pdf</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="person-popup person-popup-overlay" type="button" aria-label="Close portrait" hidden>
+      <img class="person-popup-image" src="" alt="">
+    </button>
+    <div class="project-popup-overlay" hidden>
+      <div class="project-popup-gallery" aria-label="Project images"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
