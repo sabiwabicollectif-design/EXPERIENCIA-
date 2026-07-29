@@ -5,8 +5,6 @@ const stackTriggers = [...document.querySelectorAll(".stack-trigger")];
 const bottleFrames = [...document.querySelectorAll(".bottle-frame")];
 const floaters = [...document.querySelectorAll(".floater")];
 const butterCanvas = document.querySelector(".butter-canvas");
-const knifeCursor = document.querySelector(".knife-cursor");
-const toastKnifeHitbox = document.querySelector(".toast-knife-hitbox");
 const heroToast = document.querySelector(".hero-toast");
 const bolachaImage = document.querySelector(".bolacha-image");
 const titlesSection = document.querySelector(".titles-section");
@@ -589,9 +587,6 @@ function createButterPainter() {
 
   function setActive(nextState) {
     state.active = nextState;
-    body.classList.toggle("butter-mode", nextState);
-    toastKnifeHitbox?.setAttribute("aria-pressed", String(nextState));
-    knifeCursor?.classList.toggle("is-active", nextState);
     syncToastImage();
 
     if (!nextState) {
@@ -600,21 +595,8 @@ function createButterPainter() {
     }
   }
 
-  function renderKnifeCursor() {
-    if (!knifeCursor) {
-      return;
-    }
-
-    knifeCursor.style.transform =
-      `translate3d(${state.pointerX - (knifeCursor.offsetWidth * 0.12)}px, ${state.pointerY - (knifeCursor.offsetHeight * 0.18)}px, 0) rotate(38deg) scale(0.96)`;
-  }
-
   function pointerDown(event) {
     if (!state.active) {
-      return;
-    }
-
-    if (event.target.closest(".toast-knife-hitbox")) {
       return;
     }
 
@@ -629,7 +611,6 @@ function createButterPainter() {
   function pointerMove(event) {
     state.pointerX = event.clientX;
     state.pointerY = event.clientY;
-    renderKnifeCursor();
 
     if (!state.active || !state.drawing || state.pointerId !== event.pointerId) {
       return;
@@ -654,19 +635,23 @@ function createButterPainter() {
     state.spacingLeft = 0;
   }
 
-  toastKnifeHitbox?.addEventListener("click", (event) => {
-    if (state.active) {
+  heroToast?.addEventListener("dblclick", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    state.pointerX = event.clientX || state.pointerX;
+    state.pointerY = event.clientY || state.pointerY;
+    setActive(!state.active);
+  });
+
+  window.addEventListener("dblclick", (event) => {
+    if (!state.active) {
       return;
     }
 
-    event.preventDefault();
-    state.pointerX = event.clientX || state.pointerX;
-    state.pointerY = event.clientY || state.pointerY;
-    setActive(true);
-    renderKnifeCursor();
-  });
+    if (event.target.closest(".hero-toast")) {
+      return;
+    }
 
-  window.addEventListener("dblclick", () => {
     setActive(false);
   });
 
@@ -683,7 +668,6 @@ function createButterPainter() {
   });
 
   resizeCanvas();
-  renderKnifeCursor();
   setActive(false);
 
   return {
