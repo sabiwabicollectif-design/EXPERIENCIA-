@@ -394,9 +394,17 @@ a {
 }
 
 @media (max-width: 720px) {
+  .project-popup-overlay {
+    padding: 0.75rem;
+  }
+
   .project-popup-gallery {
     gap: 0.75rem;
     width: min(92vw, 520px);
+  }
+
+  .project-popup-gallery.has-pdfs {
+    width: 100%;
   }
 
   .project-popup-gallery img,
@@ -407,7 +415,32 @@ a {
   }
 
   .project-popup-pdf {
-    min-height: 72vh;
+    min-height: 78vh;
+    border-radius: 0.35rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-popup-overlay {
+    padding: 0.5rem;
+    align-items: start;
+  }
+
+  .project-popup-gallery {
+    width: 100%;
+  }
+
+  .project-popup-gallery.has-pdfs {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-popup-pdf {
+    width: 100%;
+    min-height: calc(100vh - 1rem);
+    height: calc(100vh - 1rem);
+    max-height: calc(100vh - 1rem);
+    border-radius: 0;
   }
 }
 
