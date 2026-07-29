@@ -1,5 +1,10 @@
 :root {
   --text: #111111;
+  --page-gutter: clamp(0.75rem, 2vw, 2rem);
+  --hero-copy-max-width: 68rem;
+  --hero-text-max-width: 61rem;
+  --titles-desktop-width: min(100%, 92rem);
+  --titles-mobile-width: min(100%, 28rem);
   --locked-bolacha-gap: 4rem;
   --locked-floaters-inset: -2rem -3rem -1rem;
   --locked-floater-1-top: -1%;
@@ -36,6 +41,7 @@ body {
   background: #ffffff;
   color: var(--text);
   font-family: "Instrument Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 body.project-popup-open {
@@ -112,7 +118,7 @@ a {
 .canvas {
   display: grid;
   gap: 1.1rem;
-  padding: 5.5rem 2rem 2rem;
+  padding: 5.5rem var(--page-gutter) 2rem;
 }
 
 .hero-block {
@@ -125,7 +131,7 @@ a {
 }
 
 .hero-toast-wrap {
-  min-height: calc(100vh - 26rem);
+  min-height: min(70vh, calc(100vh - 18rem));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +139,7 @@ a {
 
 .hero-toast-stage {
   position: relative;
-  width: min(100vw, 1500px);
+  width: min(100%, 94rem);
 }
 
 .hero-toast {
@@ -149,18 +155,20 @@ a {
 }
 
 .hero-copy {
-  width: min(1100px, 100%);
+  width: min(var(--hero-copy-max-width), 100%);
   margin: 0 auto;
   z-index: 4;
 }
 
 .hero-text-wrap {
   position: relative;
+  width: min(100%, var(--hero-text-max-width));
+  margin: 0 auto;
 }
 
 .hero-intro {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 100%;
   font-size: clamp(2rem, 2.8vw, 40px);
   font-weight: 700;
   line-height: 1.12;
@@ -226,6 +234,8 @@ a {
 .titles-stage {
   position: sticky;
   top: 0;
+  width: var(--titles-desktop-width);
+  margin: 0 auto;
   height: 100vh;
   overflow: hidden;
   background: #ffffff;
@@ -261,8 +271,8 @@ a {
   position: absolute;
   color: #111111;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: clamp(10px, 0.72vw, 11px);
+  line-height: 1.7;
   z-index: 3;
 }
 
@@ -630,7 +640,44 @@ a {
   }
 
   .hero-toast-wrap {
-    min-height: calc(100vh - 22rem);
+    min-height: min(62vh, calc(100vh - 16rem));
+  }
+
+  .titles-section {
+    min-height: 165vh;
+  }
+
+  .titles-note {
+    font-size: clamp(9px, 0.95vw, 10px);
+  }
+
+  .titles-note-shifts {
+    top: 18.5%;
+    left: 9.5%;
+    width: min(24vw, 220px);
+  }
+
+  .titles-note-talks {
+    top: 43.5%;
+    left: 61%;
+    width: min(21vw, 200px);
+  }
+
+  .titles-note-collabs {
+    top: 60.5%;
+    left: 18%;
+    width: min(34vw, 300px);
+  }
+
+  .titles-note-press {
+    top: 83%;
+    left: 64%;
+    width: min(18vw, 150px);
+  }
+
+  .titles-note-archive {
+    top: 95.5%;
+    left: 41%;
   }
 
   .stack-card {
@@ -684,12 +731,12 @@ a {
   }
 
   .hero-toast {
-    width: 108vw;
-    max-height: calc(100vh - 7rem);
+    width: 100%;
+    max-height: min(52vh, 29rem);
   }
 
   .hero-toast-stage {
-    width: 108vw;
+    width: min(100%, 34rem);
   }
 
   .stack-card {
@@ -896,6 +943,7 @@ a {
 
   .titles-stage {
     position: relative;
+    width: var(--titles-mobile-width);
     height: auto;
     min-height: auto;
     overflow: visible;
